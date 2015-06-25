@@ -75,7 +75,7 @@ OPERATION_TYPE = "createDatabase"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-GDBNAME = "orcl11g.us.oracle.com"
+GDBNAME = "orcl.ora11gr2"
 
 #-----------------------------------------------------------------------------
 # Name          : POLICYMANAGED
@@ -146,7 +146,7 @@ GDBNAME = "orcl11g.us.oracle.com"
 # Default value : <db_name> specified in GDBNAME
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-SID = "orcl11g"
+SID = "orcl"
 
 #-----------------------------------------------------------------------------
 # Name          : NODELIST
@@ -187,7 +187,7 @@ TEMPLATENAME = "General_Purpose.dbc"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-#SYSPASSWORD = "password"
+SYSPASSWORD = "286955"
 
 #-----------------------------------------------------------------------------
 # Name          : SYSTEMPASSWORD
@@ -197,7 +197,7 @@ TEMPLATENAME = "General_Purpose.dbc"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-#SYSTEMPASSWORD = "password"
+SYSTEMPASSWORD = "286955"
 
 #-----------------------------------------------------------------------------
 # Name          : EMCONFIGURATION
@@ -354,7 +354,7 @@ TEMPLATENAME = "General_Purpose.dbc"
 # Default value : $ORACLE_BASE/oradata
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-#DATAFILEDESTINATION =
+DATAFILEDESTINATION =/u01/app/oracle/oradata
 
 #-----------------------------------------------------------------------------
 # Name          : RECOVERYAREADESTINATION
@@ -364,7 +364,7 @@ TEMPLATENAME = "General_Purpose.dbc"
 # Default value : $ORACLE_BASE/flash_recovery_area
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-#RECOVERYAREADESTINATION=
+RECOVERYAREADESTINATION=/u01/app/oracle/oradata_back
 
 #-----------------------------------------------------------------------------
 # Name          : STORAGETYPE
@@ -412,7 +412,7 @@ TEMPLATENAME = "General_Purpose.dbc"
 # Default value : "US7ASCII"
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
-#CHARACTERSET = "US7ASCII"
+CHARACTERSET = "ZHS16GBK"
 
 #-----------------------------------------------------------------------------
 # Name          : NATIONALCHARACTERSET
