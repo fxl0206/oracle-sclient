@@ -34,7 +34,7 @@ oracle.install.option=INSTALL_DB_SWONLY
 # first hostname found on the system. (e.g., for systems with multiple hostnames 
 # and network interfaces)
 #-------------------------------------------------------------------------------
-ORACLE_HOSTNAME=ora11gr2
+ORACLE_HOSTNAME=dbserver
 
 #-------------------------------------------------------------------------------
 # Specify the Unix group to be set for the inventory directory.  
@@ -96,7 +96,7 @@ ORACLE_BASE=/u01/app/oracle
 # SEONE  : Standard Edition One
 # PE     : Personal Edition (WINDOWS ONLY)
 #------------------------------------------------------------------------------
-oracle.install.db.InstallEdition=EE
+oracle.install.db.InstallEdition=SE
 
 #------------------------------------------------------------------------------
 # This variable is used to enable or disable custom install.
@@ -162,12 +162,12 @@ oracle.install.db.config.starterdb.type=GENERAL_PURPOSE
 #------------------------------------------------------------------------------
 # Specify the Starter Database Global Database Name. 
 #------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.globalDBName=ora11g
+oracle.install.db.config.starterdb.globalDBName=orcl
 
 #------------------------------------------------------------------------------
 # Specify the Starter Database SID.
 #------------------------------------------------------------------------------
-oracle.install.db.config.starterdb.SID=ora11g
+oracle.install.db.config.starterdb.SID=orcl
 
 #------------------------------------------------------------------------------
 # Specify the Starter Database character set.

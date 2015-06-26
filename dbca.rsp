@@ -75,7 +75,7 @@ OPERATION_TYPE = "createDatabase"
 # Default value : None
 # Mandatory     : Yes
 #-----------------------------------------------------------------------------
-GDBNAME = "orcl.ora11gr2"
+GDBNAME = "orcl.dbserver"
 
 #-----------------------------------------------------------------------------
 # Name          : POLICYMANAGED
@@ -199,7 +199,7 @@ SYSPASSWORD = "286955"
 #-----------------------------------------------------------------------------
 SYSTEMPASSWORD = "286955"
 
-#-----------------------------------------------------------------------------
+#------------------TAFILEDESTINATION
 # Name          : EMCONFIGURATION
 # Datatype      : String
 # Description   : Enterprise Manager Configuration Type
