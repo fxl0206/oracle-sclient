@@ -1,4 +1,3 @@
-./st0instalrpm.sh
-./st1setEnv.sh
-./st3inituser.sh
+sudo ./st0instalrpm.sh
+sudo ./st1setEnv.sh
 ./st4installoracle.sh

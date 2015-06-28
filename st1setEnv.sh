@@ -24,3 +24,5 @@ echo "oracle hard nproc 16384" >> /etc/security/limits.conf
 echo "oracle soft nofile 1024" >> /etc/security/limits.conf
 echo "oracle hard nofile 65536" >> /etc/security/limits.conf
 echo "oracle soft stack 102405" >> /etc/security/limits.conf
+
+cp -R rsps/* /etc
