@@ -137,6 +137,9 @@ case "$1" in
     'install')
         install
         ;;
+   'installdb')
+        installdb
+        ;;
     *)
     echo "usage: $0 {start|stop|restart|status|link|install}"
     exit 1
