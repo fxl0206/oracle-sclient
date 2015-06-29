@@ -24,7 +24,10 @@ restart() {
     start;
 }
 install(){
-  echo "install rpms.................."
+  initEvn;
+}
+initEvn(){
+   echo "install rpms.................."
   yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc-c++ glibc glibc-devel 
   yum install -y ksh libgcc libstdc++ libstdc++-devel libaio libaio-devel make sysstat unixODBC unixODBC-devel
   echo "init Env.................."
@@ -61,10 +64,13 @@ install(){
   mkdir /u01/app/oracle/oradata_back
   chown -R oracle.oinstall /u01/app
   chmod 775 /u01/app
-  
+}
+installServer(){
   echo "install database.................."
-  source /etc/profile
-  su - oracle -c "source /etc/profile && cd /data/database && ./runInstaller -silent -ignorePrereq -responseFile /etc/db_install.rsp"
+  #source /etc/profile
+  #su - oracle -c "source /etc/profile && cd /data/database && ./runInstaller -silent -ignorePrereq -responseFile /etc/db_install.rsp"
+  cd /data/database 
+   ./runInstaller -silent -ignorePrereq -responseFile /etc/db_install.rsp
   while true
   do
      v_count=`ps -aux | grep install | grep java | grep -v grep |wc -l`
@@ -96,9 +102,12 @@ install(){
   
   /u01/app/oracle/oraInventory/orainstRoot.sh
   /u01/app/oracle/product/11.2.0/db_1/root.sh
-  
+  echo "install database successful!.................."
+}
+installListener(){
   echo "install listener.................."
-  su - oracle -c "source /etc/profile && netca /silent /responsefile /etc/netca.rsp"
+  #su - oracle -c "source /etc/profile && netca /silent /responsefile /etc/netca.rsp"
+  netca /silent /responsefile /etc/netca.rsp
   while true
   do
      v_count=`ps -aux | grep netca | grep -v grep | grep java |wc -l`
@@ -111,7 +120,7 @@ install(){
      fi
   done
   su - oracle -c "source /etc/profile && lsnrctl status"
-  
+  echo "install listener successful!.................."
 }
 installdb(){
   echo "install DB.................."
@@ -120,6 +129,7 @@ installdb(){
   source /etc/profile
   ps -ef | grep ora_ | grep -v grep
   lsnrctl status
+  echo "install DB successful.................."
 }
 case "$1" in
     'start')
@@ -136,6 +146,12 @@ case "$1" in
         ;;
     'install')
         install
+        ;;
+    'installServer')
+        installServer
+        ;;
+    'installListener')
+        installListener
         ;;
    'installdb')
         installdb
