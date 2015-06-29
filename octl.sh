@@ -23,8 +23,10 @@ restart() {
     start;
 }
 install(){
+  echo "install rpms.................."
   yum install -y binutils compat-libcap1 compat-libstdc++-33 gcc-c++ glibc glibc-devel 
   yum install -y ksh libgcc libstdc++ libstdc++-devel libaio libaio-devel make sysstat unixODBC unixODBC-devel
+  echo "init Env.................."
   export TMP=/tmp
   export TMPDIR=$TMP
   export ORACLE_BASE=/u01/app/oracle
@@ -54,6 +56,7 @@ install(){
   systemctl stop firewalld.service
   systemctl disable firewalld.service
   
+  echo "init user.................."
   cp -R rsps/* /etc
   groupadd oinstall 
   groupadd dba
@@ -64,6 +67,8 @@ install(){
   mkdir /u01/app/oracle/oradata_back
   chown -R oracle.oinstall /u01/app
   chmod 775 /u01/app
+  
+  echo "install database.................."
   source /etc/profile
   su - oracle -c "source /etc/profile && cd /data/database && ./runInstaller -silent -ignorePrereq -responseFile /etc/db_install.rsp"
   while true
@@ -98,6 +103,7 @@ install(){
   /u01/app/oracle/oraInventory/orainstRoot.sh
   /u01/app/oracle/product/11.2.0/db_1/root.sh
   
+  echo "install listener.................."
   su - oracle -c "source /etc/profile && netca /silent /responsefile /etc/netca.rsp"
   while true
   do
@@ -114,6 +120,7 @@ install(){
   
 }
 installdb(){
+  echo "install DB.................."
   source /etc/profile
   dbca -silent -responseFile /etc/dbca.rsp
   source /etc/profile
