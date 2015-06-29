@@ -89,6 +89,7 @@ installServer(){
         break
      else
         echo "is installing database,sleep 10 minues!"
+        sleep 10
      fi
   done
   while true
@@ -97,6 +98,7 @@ installServer(){
         break
      else
         echo "is installing database,sleep 10 minues!"
+        sleep 10
      fi
   done
   
