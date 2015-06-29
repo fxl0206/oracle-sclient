@@ -4,6 +4,7 @@ su - oracle -c "cd /data/database && ./runInstaller -silent -ignorePrereq -respo
 
 su - oracle -c "netca /silent /responsefile /etc/netca.rsp"
 su - oracle -c "lsnrctl status"
+sleep 5
 su - oracle -c "dbca -silent -responseFile /etc/dbca.rsp"
 
 ps -ef | grep ora_ | grep -v grep
