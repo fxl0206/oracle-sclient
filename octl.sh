@@ -8,18 +8,14 @@ status(){
 start() {
         echo "================ start ${SERVER_NAME} ===========";
         lsnrctl start
-        sqlplus / as sysdba @ ./start.sql
+        sqlplus / as sysdba @ script/start.sql
         echo "==========${SERVER_NAME} start success===========";
 }
 stop() {
-        sqlplus / as sysdba @ ./stop.sql
+        sqlplus / as sysdba @ script/stop.sql
         lsnrctl stop
         echo "===========${SERVER_NAME} stop success !============";
 }
-debug(){
-        make
-        ./_rel/grey_bird/bin/grey_bird console
-        }
 restart() {
     stop;
     echo "sleeping.........";
@@ -115,8 +111,11 @@ install(){
      fi
   done
   su - oracle -c "source /etc/profile && lsnrctl status"
-  sleep 30
-  su - oracle -c "source /etc/profile && dbca -silent -responseFile /etc/dbca.rsp && sleep 60"
+  
+}
+installdb(){
+  source /etc/profile
+  dbca -silent -responseFile /etc/dbca.rsp
   source /etc/profile
   ps -ef | grep ora_ | grep -v grep
   lsnrctl status
@@ -130,9 +129,6 @@ case "$1" in
         ;;
     'status')
         status
-        ;;
-     'debug')
-        debug
         ;;
     'restart')
         restart
