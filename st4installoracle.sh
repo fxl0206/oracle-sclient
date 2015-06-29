@@ -8,3 +8,4 @@ sleep 5
 su - oracle -c "dbca -silent -responseFile /etc/dbca.rsp"
 
 ps -ef | grep ora_ | grep -v grep
+lsnrctl status
