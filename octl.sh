@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+#su - oracle -s /bin/bash install.sh
 SERVER_NAME=oracle11g
 
 status(){
