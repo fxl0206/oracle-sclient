@@ -7,8 +7,8 @@ do
    then
    break
    else
-   echo "is installing database,sleep 10 minues!"
-   sleep 10
+   echo "is installing database,sleep 30 minues!"
+   sleep 30
    fi
 done
 
