@@ -45,7 +45,7 @@ do
    fi
 done
 su - oracle -c "source /etc/profile && lsnrctl status"
-sleep 5
+sleep 30
 su - oracle -c "source /etc/profile && dbca -silent -responseFile /etc/dbca.rsp"
 source /etc/profile
 ps -ef | grep ora_ | grep -v grep
