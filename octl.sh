@@ -154,9 +154,9 @@ installListener(){
 installdb(){
   echo "install DB.................."
   source /etc/profile
-  su - oracle -c "source /etc/profile && dbca -silent -responseFile /etc/dbca.rsp"
+  #su - oracle -c "source /etc/profile && dbca -silent -responseFile /etc/dbca.rsp"
   #source /etc/profile
-  #dbca -silent -responseFile /etc/dbca.rsp
+  dbca -silent -responseFile /etc/dbca.rsp
   ps -ef | grep ora_ | grep -v grep
   lsnrctl status
   echo "install DB successful.................."
