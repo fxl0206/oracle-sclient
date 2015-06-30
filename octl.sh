@@ -126,19 +126,20 @@ installListener(){
      fi
   done
   echo "install listener successful!.................."
+  su - oracle -c "source /etc/profile && lsnrctl stop"
   echo "SID_LIST_LISTENER =" > /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(SID_LIST =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(SID_DESC =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(SID_NAME = PLSExtProc)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(ORACLE_HOME = /u01/app/oracle/product/11.2.0/db_1)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(PROGRAM = extproc)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo ")" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(SID_DESC =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(GLOBAL_DBNAME =orcl)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(ORACLE_HOME = /u01/app/oracle/product/11.2.0/db_1)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo "(SID_NAME =orcl)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo ")" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  echo ")" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (SID_LIST =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (SID_DESC =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (SID_NAME = PLSExtProc)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (ORACLE_HOME = /u01/app/oracle/product/11.2.0/db_1)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (PROGRAM = extproc)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " )" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (SID_DESC =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (GLOBAL_DBNAME =orcl)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (ORACLE_HOME = /u01/app/oracle/product/11.2.0/db_1)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " (SID_NAME =orcl)" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " )" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
+  echo " )" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
   echo "#LISTENER =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
   echo "#  (DESCRIPTION_LIST =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
   echo "#    (DESCRIPTION =" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
@@ -147,7 +148,6 @@ installListener(){
   echo "#    )" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
   echo "#  )" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
   echo "#ADR_BASE_LISTENER = /u01/app/oracle" >> /u01/app/oracle/product/11.2.0/db_1/network/admin/listener.ora
-  su - oracle -c "source /etc/profile && lsnrctl stop"
   su - oracle -c "source /etc/profile && lsnrctl start"
   su - oracle -c "source /etc/profile && lsnrctl status"
 }
