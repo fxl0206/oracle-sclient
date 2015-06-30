@@ -186,6 +186,9 @@ case "$1" in
    'installdb')
         installdb
         ;;
+   'initEvn')
+        initEvn
+        ;;
     *)
     echo "usage: $0 {start|stop|restart|status|link|install}"
     exit 1
